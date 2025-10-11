@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to DayFi — Send Money Smarter 🌍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Karla', Arial, sans-serif;
+            background-color: #FEF9F3;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .email-content {
+            padding: 40px 30px;
+        }
+        
+        .email-header {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .email-subheader {
+            font-size: 20px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .greeting {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .main-content {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .features-intro {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .features-list {
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .feature-icon {
+            margin-right: 15px;
+            margin-top: 2px;
+            font-size: 20px;
+            color: #ffd700;
+        }
+        
+        .feature-text {
+            flex: 1;
+        }
+        
+        .feature-title {
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+        
+        .feature-description {
+            font-weight: 400;
+            color: #000000;
+        }
+        
+        .closing {
+            margin: 30px 0 20px 0;
+            font-size: 16px;
+            color: #000000;
+        }
+        
+        .team-signature {
+            font-weight: 700;
+            color: #000000;
+        }
+        
+        .app-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .app-text {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .app-button {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+        
+        .app-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .app-button img {
+            height: 50px;
+            width: auto;
+        }
+        
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .email-content {
+                padding: 30px 20px;
+            }
+            
+            .email-header {
+                font-size: 24px;
+            }
+            
+            .email-subheader {
+                font-size: 18px;
+            }
+            
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .app-button {
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media only screen and (max-width: 480px) {
+            .email-content {
+                padding: 20px 15px;
+            }
+            
+            .email-header {
+                font-size: 22px;
+            }
+            
+            .email-subheader {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-content">
+            <h1 class="email-header">Welcome To DayFi!</h1>
+            <h2 class="email-subheader">Glad to have you with us.</h2>
+            
+            <p class="greeting">Hello {{firstName}} {{lastName}},</p>
+            
+            <p class="main-content">We're excited to have you join our global community.</p>
+            
+            <p class="features-intro">With DayFi, you can:</p>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <span class="feature-icon">💰</span>
+                    <div class="feature-text">
+                        <div class="feature-title">Send money to those who matter</div>
+                        <div class="feature-description">— make international transfers to local bank accounts and mobile wallets.</div>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">🌍</span>
+                    <div class="feature-text">
+                        <div class="feature-title">Transact across 20+ countries</div>
+                        <div class="feature-description">— in over 15 currencies, instantly.</div>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">🔒</span>
+                    <div class="feature-text">
+                        <div class="feature-title">Enjoy secure transfers</div>
+                        <div class="feature-description">— your data and funds are protected with enterprise-level security.</div>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <div class="feature-text">
+                        <div class="feature-title">Experience real speed</div>
+                        <div class="feature-description">— funds delivered in minutes, not days.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="closing">
+                <p>Start your journey today and experience seamless, secure, and borderless money movement — powered by DayFi.</p>
+                <p>Warm regards,</p>
+                <p class="team-signature">The DayFi Team</p>
+            </div>
+            
+            <div class="app-section">
+                <p class="app-text">Send money across border with Send App. Get the app on Android or iOS.</p>
+                <div class="app-buttons">
+                    <a href="{{googlePlayUrl}}" class="app-button">
+                        <img src="assets/google.png" alt="GET IT ON Google Play">
+                    </a>
+                    <a href="{{appStoreUrl}}" class="app-button">
+                        <img src="assets/apple.png" alt="Download on the App Store">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

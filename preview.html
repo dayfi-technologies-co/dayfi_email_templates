@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayFi Email Templates Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Karla', Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .template-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .template-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .template-subject {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .template-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .template-variables {
+            font-size: 12px;
+            color: #888;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .template-link {
+            display: inline-block;
+            background-color: #6A31A2;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .template-link:hover {
+            background-color: #5a2a8a;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #666;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DayFi Email Templates Preview</h1>
+        
+        <div class="template-grid">
+            <div class="template-card">
+                <div class="template-title">Password Reset Request</div>
+                <div class="template-subject">Subject: Reset Your DayFi Password 🔐</div>
+                <div class="template-description">Send OTP verification code for password reset with security information and expiration time.</div>
+                <div class="template-variables">
+                    <strong>Variables:</strong> {{firstName}}, {{otpCode}}
+                </div>
+                <a href="password-reset-request.html" class="template-link" target="_blank">View Template</a>
+            </div>
+            
+            <div class="template-card">
+                <div class="template-title">Password Reset Success</div>
+                <div class="template-subject">Subject: Your Password Has Been Updated ✅</div>
+                <div class="template-description">Confirm successful password reset with security warning and support contact information.</div>
+                <div class="template-variables">
+                    <strong>Variables:</strong> {{firstName}}, {{supportUrl}}
+                </div>
+                <a href="password-reset-success.html" class="template-link" target="_blank">View Template</a>
+            </div>
+            
+            <div class="template-card">
+                <div class="template-title">Transfer Unsuccessful</div>
+                <div class="template-subject">Subject: Transfer Unsuccessful — Let's Fix It ⚠️</div>
+                <div class="template-description">Notify user of failed transfer with retry options, support contact, and reassurance about fund safety.</div>
+                <div class="template-variables">
+                    <strong>Variables:</strong> {{firstName}}, {{amount}}, {{recipientName}}
+                </div>
+                <a href="transfer-unsuccessful.html" class="template-link" target="_blank">View Template</a>
+            </div>
+            
+            <div class="template-card">
+                <div class="template-title">Transfer Successful</div>
+                <div class="template-subject">Subject: Your Transfer Was Successful 💸</div>
+                <div class="template-description">Confirm successful transfer with next steps, action items, and transaction details.</div>
+                <div class="template-variables">
+                    <strong>Variables:</strong> {{firstName}}, {{amount}}, {{recipientName}}
+                </div>
+                <a href="transfer-successful.html" class="template-link" target="_blank">View Template</a>
+            </div>
+            
+            <div class="template-card">
+                <div class="template-title">Email Verification</div>
+                <div class="template-subject">Subject: Verify Your Email to Unlock Your DayFi Account ✉️</div>
+                <div class="template-description">Send OTP for email verification during signup with account activation instructions.</div>
+                <div class="template-variables">
+                    <strong>Variables:</strong> {{firstName}}, {{lastName}}, {{otpCode}}
+                </div>
+                <a href="email-verification.html" class="template-link" target="_blank">View Template</a>
+            </div>
+            
+            <div class="template-card">
+                <div class="template-title">Welcome Email</div>
+                <div class="template-subject">Subject: Welcome to DayFi — Send Money Smarter 🌍</div>
+                <div class="template-description">Onboard new users with feature highlights, benefits, and app download options.</div>
+                <div class="template-variables">
+                    <strong>Variables:</strong> {{firstName}}, {{lastName}}
+                </div>
+                <a href="welcome-email.html" class="template-link" target="_blank">View Template</a>
+            </div>
+            
+            <div class="template-card">
+                <div class="template-title">Transfer Reminder</div>
+                <div class="template-subject">Subject: Don't forget your transfer...</div>
+                <div class="template-description">Remind users of incomplete transfers with payment details and transaction summary.</div>
+                <div class="template-variables">
+                    <strong>Variables:</strong> {{firstName}}, {{lastName}}, {{amountToSend}}, {{amount}}, {{totalFee}}
+                </div>
+                <a href="transfer-reminder.html" class="template-link" target="_blank">View Template</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>DayFi Email Templates</strong> - Responsive HTML/CSS templates for user communication</p>
+            <p>All templates are mobile-first and optimized for all email clients</p>
+        </div>
+    </div>
+</body>
+</html>

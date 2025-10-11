@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don't forget your transfer...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Karla', Arial, sans-serif;
+            background-color: #FEF9F3;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .email-content {
+            padding: 40px 30px;
+        }
+        
+        .email-header {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .greeting {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .main-content {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-text {
+            font-weight: 700;
+            color: #000000;
+        }
+        
+        .transaction-details {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .transaction-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .transaction-label {
+            font-weight: 400;
+            color: #000000;
+        }
+        
+        .transaction-value {
+            font-weight: 700;
+            color: #000000;
+        }
+        
+        .faq-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .faq-text {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .faq-button {
+            display: inline-block;
+            background-color: #6A31A2;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-button:hover {
+            background-color: #5a2a8a;
+        }
+        
+        .app-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .app-text {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .app-button {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+        
+        .app-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .app-button img {
+            height: 50px;
+            width: auto;
+        }
+        
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .email-content {
+                padding: 30px 20px;
+            }
+            
+            .email-header {
+                font-size: 24px;
+            }
+            
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .app-button {
+                margin-bottom: 10px;
+            }
+            
+            .transaction-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+        
+        @media only screen and (max-width: 480px) {
+            .email-content {
+                padding: 20px 15px;
+            }
+            
+            .email-header {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-content">
+            <h1 class="email-header">Reminder, you've got an incomplete transfer of <span class="highlight-text">${{amountToSend}} NGN</span> pending</h1>
+            
+            <p class="greeting">Hello {{firstName}} {{lastName}},</p>
+            
+            <p class="main-content">Did you forget? We realized you have a transfer pending your verification, do you need our help?</p>
+            
+            <p class="main-content">Here's a summary of your payment.</p>
+            
+            <div class="transaction-details">
+                <p class="highlight-text">Payment details:</p>
+                
+                <div class="transaction-row">
+                    <span class="transaction-label">Amount:</span>
+                    <span class="transaction-value">{{amount}} NGN</span>
+                </div>
+                
+                <div class="transaction-row">
+                    <span class="transaction-label">Total Fee:</span>
+                    <span class="transaction-value">{{totalFee}} NGN</span>
+                </div>
+                
+                <div class="transaction-row">
+                    <span class="transaction-label">Amount to be sent:</span>
+                    <span class="transaction-value">{{amountToSend}} NGN</span>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <p class="faq-text">If you have any questions please visit our FAQs we've possibly got an answer for you.</p>
+                <a href="{{faqUrl}}" class="faq-button">Visit FAQs</a>
+            </div>
+            
+            <div class="app-section">
+                <p class="app-text">Send money across border with Send App. Get the app on Android or iOS.</p>
+                <div class="app-buttons">
+                    <a href="{{googlePlayUrl}}" class="app-button">
+                        <img src="assets/google.png" alt="GET IT ON Google Play">
+                    </a>
+                    <a href="{{appStoreUrl}}" class="app-button">
+                        <img src="assets/apple.png" alt="Download on the App Store">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
