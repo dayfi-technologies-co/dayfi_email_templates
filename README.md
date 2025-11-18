@@ -1,43 +1,73 @@
 # DayFi Email Templates
 
-This folder contains 7 responsive HTML/CSS email templates for DayFi's user communication system. All templates are designed to be mobile-first and fully responsive across all device sizes.
+This folder contains responsive HTML/CSS email templates for DayFi's user communication system. All templates are designed to be mobile-first and fully responsive across all device sizes.
 
 ## 📧 Available Templates
 
-### 1. **Password Reset Request** (`password-reset-request.html`)
-- **Subject:** Reset Your DayFi Password 🔐
-- **Purpose:** Send OTP verification code for password reset
-- **Dynamic Data:** `{{firstName}}`, `{{otpCode}}`
+### Account & Authentication
 
-### 2. **Password Reset Success** (`password-reset-success.html`)
-- **Subject:** Your Password Has Been Updated ✅
-- **Purpose:** Confirm successful password reset with security warning
-- **Dynamic Data:** `{{firstName}}`, `{{supportUrl}}`
-
-### 3. **Transfer Unsuccessful** (`transfer-unsuccessful.html`)
-- **Subject:** Transfer Unsuccessful — Let's Fix It ⚠️
-- **Purpose:** Notify user of failed transfer with retry options
-- **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{recipientName}}`
-
-### 4. **Transfer Successful** (`transfer-successful.html`)
-- **Subject:** Your Transfer Was Successful 💸
-- **Purpose:** Confirm successful transfer with next steps
-- **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{recipientName}}`
-
-### 5. **Email Verification** (`email-verification.html`)
+#### 1. **Email Verification** (`email-verification.html`)
 - **Subject:** Verify Your Email to Unlock Your DayFi Account ✉️
 - **Purpose:** Send OTP for email verification during signup
-- **Dynamic Data:** `{{firstName}}`, `{{lastName}}`, `{{otpCode}}`
+- **Dynamic Data:** `{{firstName}}`, `{{lastName}}`, `{{otpCode}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
 
-### 6. **Welcome Email** (`welcome-email.html`)
+#### 2. **Welcome Email** (`welcome-email.html`)
 - **Subject:** Welcome to DayFi — Send Money Smarter 🌍
 - **Purpose:** Onboard new users with feature highlights
 - **Dynamic Data:** `{{firstName}}`, `{{lastName}}`
 
-### 7. **Transfer Reminder** (`transfer-reminder.html`)
+### Password Management
+
+#### 3. **Password Reset Request** (`password-reset-request.html`)
+- **Subject:** Reset Your DayFi Password 🔐
+- **Purpose:** Send OTP verification code for password reset
+- **Dynamic Data:** `{{firstName}}`, `{{otpCode}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
+
+#### 4. **Password Reset Success** (`password-reset-success.html`)
+- **Subject:** Your Password Has Been Updated ✅
+- **Purpose:** Confirm successful password reset with security warning
+- **Dynamic Data:** `{{firstName}}`, `{{supportUrl}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
+
+### Transaction PIN Management
+
+#### 5. **Transaction PIN Verification** (`transaction-pin-verification.html`)
+- **Subject:** Verify Your Identity to Reset Transaction PIN 🔐
+- **Purpose:** Send OTP to verify user identity before allowing PIN reset
+- **Dynamic Data:** `{{firstName}}`, `{{lastName}}`, `{{otpCode}}`, `{{expiryMinutes}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
+
+#### 6. **Transaction PIN Set Success** (`transaction-pin-set-success.html`)
+- **Subject:** Your Transaction PIN Has Been Set ✅
+- **Purpose:** Confirm successful transaction PIN setup with security warning
+- **Dynamic Data:** `{{firstName}}`, `{{supportUrl}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
+
+### Transfer Management
+
+#### 7. **Transfer Successful** (`transfer-successful.html`)
+- **Subject:** Your Transfer Was Successful 💸
+- **Purpose:** Confirm successful transfer with next steps
+- **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{recipientName}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
+
+#### 8. **Transfer Unsuccessful** (`transfer-unsuccessful.html`)
+- **Subject:** Transfer Unsuccessful — Let's Fix It ⚠️
+- **Purpose:** Notify user of failed transfer with retry options
+- **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{recipientName}}`
+
+#### 9. **Transfer Reminder** (`transfer-reminder.html`)
 - **Subject:** Don't forget your transfer...
 - **Purpose:** Remind users of incomplete transfers
 - **Dynamic Data:** `{{firstName}}`, `{{lastName}}`, `{{amountToSend}}`, `{{amount}}`, `{{totalFee}}`
+
+### Wallet Funding
+
+#### 10. **Wallet Funded Successfully** (`fund-wallet-successful.html`)
+- **Subject:** Your Wallet Has Been Funded 💰
+- **Purpose:** Inform users that their wallet has been funded successfully
+- **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{balance}}`, `{{transactionId}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
+
+#### 11. **Wallet Funding Failed** (`fund-wallet-failed.html`)
+- **Subject:** Wallet Funding Failed ❌
+- **Purpose:** Notify user of failed wallet funding with retry and support options
+- **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{failureReason}}`, `{{transactionId}}`, `{{supportUrl}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
 
 ## 🎨 Design Specifications
 
@@ -67,17 +97,23 @@ Replace the following placeholders with actual data:
 {{lastName}}           <!-- User's last name -->
 
 <!-- Transaction Data -->
-{{amount}}             <!-- Transfer amount -->
+{{amount}}             <!-- Transfer/funding amount -->
+{{balance}}            <!-- User's wallet balance -->
 {{amountToSend}}       <!-- Amount to be sent -->
 {{totalFee}}           <!-- Transaction fee -->
 {{recipientName}}      <!-- Recipient's name -->
+{{transactionId}}      <!-- Unique transaction reference -->
 
 <!-- Verification Codes -->
 {{otpCode}}            <!-- OTP verification code -->
+{{expiryMinutes}}      <!-- OTP expiry time in minutes -->
+
+<!-- Error/Status Information -->
+{{failureReason}}      <!-- Reason for transaction failure -->
 
 <!-- URLs -->
 {{faqUrl}}             <!-- FAQ page URL -->
-{{supportUrl}}          <!-- Support contact URL -->
+{{supportUrl}}         <!-- Support contact URL -->
 {{googlePlayUrl}}      <!-- Google Play Store URL -->
 {{appStoreUrl}}        <!-- Apple App Store URL -->
 ```
@@ -138,16 +174,21 @@ def send_password_reset_email(user, otp_code):
 ```
 dayfi_email_templates/
 ├── assets/
-│   ├── apple.png          # Apple App Store button
-│   └── google.png         # Google Play Store button
-├── base-template.html     # Base template with common styles
+│   ├── apple.png              # Apple App Store button
+│   └── google.png             # Google Play Store button
+├── base-template.html         # Base template with common styles
+├── email-verification.html    # Email verification OTP
+├── welcome-email.html         # New user welcome
 ├── password-reset-request.html
 ├── password-reset-success.html
-├── transfer-unsuccessful.html
+├── transaction-pin-verification.html
+├── transaction-pin-set-success.html
 ├── transfer-successful.html
-├── email-verification.html
-├── welcome-email.html
+├── transfer-unsuccessful.html
 ├── transfer-reminder.html
+├── fund-wallet-successful.html
+├── fund-wallet-failed.html
+├── preview.html               # Email preview/testing
 └── README.md
 ```
 

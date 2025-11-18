@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Funding Failed ❌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Karla', Arial, sans-serif;
+            background-color: #FEF9F3;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .email-content {
+            padding: 40px 30px;
+        }
+        
+        .email-header {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .greeting {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .main-content {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-text {
+            font-weight: 700;
+            color: #000000;
+        }
+        
+        .error-box {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #721c24;
+        }
+        
+        .error-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .reason-text {
+            font-size: 16px;
+            color: #000000;
+            margin: 20px 0;
+        }
+        
+        .action-list {
+            margin: 20px 0;
+        }
+        
+        .action-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .action-icon {
+            margin-right: 12px;
+            margin-top: 2px;
+            font-size: 18px;
+            color: #6c757d;
+        }
+        
+        .action-text {
+            flex: 1;
+        }
+        
+        .action-text .highlight-text {
+            font-weight: 700;
+        }
+        
+        .support-link {
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .support-link:hover {
+            text-decoration: underline;
+        }
+        
+        .faq-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .faq-text {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .faq-button {
+            display: inline-block;
+            background-color: #6A31A2;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-button:hover {
+            background-color: #5a2a8a;
+        }
+        
+        .app-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .app-text {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .app-button {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+        
+        .app-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .app-button img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .closing {
+            margin: 30px 0 20px 0;
+            font-size: 16px;
+            color: #000000;
+        }
+        
+        .team-signature {
+            font-weight: 700;
+            color: #000000;
+        }
+        
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .email-content {
+                padding: 30px 20px;
+            }
+            
+            .email-header {
+                font-size: 24px;
+            }
+            
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .app-button {
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media only screen and (max-width: 480px) {
+            .email-content {
+                padding: 20px 15px;
+            }
+            
+            .email-header {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-content">
+            <h1 class="email-header">Wallet Funding Failed</h1>
+            
+            <p class="greeting">Hi {{firstName}},</p>
+            
+            <p class="main-content">Unfortunately, we were unable to fund your wallet with <span class="highlight-text">{{amount}}</span>.</p>
+            
+            <div class="error-box">
+                <p class="error-title">Why did this happen?</p>
+                <p>{{failureReason}}</p>
+            </div>
+            
+            <p class="reason-text">Transaction reference: <span class="highlight-text">{{transactionId}}</span></p>
+            
+            <div class="action-list">
+                <p class="highlight-text">What you can do:</p>
+                
+                <div class="action-item">
+                    <span class="action-icon">🔄</span>
+                    <div class="action-text">
+                        <span class="highlight-text">Try again</span> — sometimes a retry resolves temporary issues.
+                    </div>
+                </div>
+                
+                <div class="action-item">
+                    <span class="action-icon">📄</span>
+                    <div class="action-text">
+                        <span class="highlight-text">Check transaction details</span> in your DayFi app for more information.
+                    </div>
+                </div>
+                
+                <div class="action-item">
+                    <span class="action-icon">🤝</span>
+                    <div class="action-text">
+                        <span class="highlight-text">Need help?</span> <a href="{{supportUrl}}" class="support-link">Contact our support team</a> — we're here to assist.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="closing">
+                <p>We apologize for the inconvenience,</p>
+                <p class="team-signature">The DayFi Team</p>
+            </div>
+            
+            <div class="faq-section">
+                <p class="faq-text">If you have any questions please visit our FAQs — we may already have the answer.</p>
+                <a href="{{faqUrl}}" class="faq-button">Visit FAQs</a>
+            </div>
+            
+            <div class="app-section">
+                <p class="app-text">Manage your wallet and transfers on the DayFi app.</p>
+                <div class="app-buttons">
+                    <a href="{{googlePlayUrl}}" class="app-button">
+                        <img src="assets/google.png" alt="GET IT ON Google Play">
+                    </a>
+                    <a href="{{appStoreUrl}}" class="app-button">
+                        <img src="assets/apple.png" alt="Download on the App Store">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
