@@ -49,27 +49,32 @@ This folder contains responsive HTML/CSS email templates for DayFi's user commun
 
 #### 8. **Transfer Successful** (`transfer-successful.html`)
 - **Subject:** Your Transfer Was Successful 💸
-- **Purpose:** Confirm successful transfer with next steps
+- **Purpose:** Confirm successful transfer with next steps (sender notification)
 - **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{recipientName}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
 
-#### 9. **Transfer Unsuccessful** (`transfer-unsuccessful.html`)
+#### 9. **Transfer Received** (`transfer-received.html`)
+- **Subject:** You've Received Money 💰
+- **Purpose:** Notify recipient that they've received a transfer with full transaction details
+- **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{senderName}}`, `{{transferType}}`, `{{transactionId}}`, `{{transactionDate}}`, `{{balance}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
+
+#### 10. **Transfer Unsuccessful** (`transfer-unsuccessful.html`)
 - **Subject:** Transfer Unsuccessful — Let's Fix It ⚠️
 - **Purpose:** Notify user of failed transfer with retry options
 - **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{recipientName}}`
 
-#### 10. **Transfer Reminder** (`transfer-reminder.html`)
+#### 11. **Transfer Reminder** (`transfer-reminder.html`)
 - **Subject:** Don't forget your transfer...
 - **Purpose:** Remind users of incomplete transfers
 - **Dynamic Data:** `{{firstName}}`, `{{lastName}}`, `{{amountToSend}}`, `{{amount}}`, `{{totalFee}}`
 
 ### Wallet Funding
 
-#### 11. **Wallet Funded Successfully** (`fund-wallet-successful.html`)
+#### 12. **Wallet Funded Successfully** (`fund-wallet-successful.html`)
 - **Subject:** Your Wallet Has Been Funded 💰
 - **Purpose:** Inform users that their wallet has been funded successfully
 - **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{balance}}`, `{{transactionId}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
 
-#### 12. **Wallet Funding Failed** (`fund-wallet-failed.html`)
+#### 13. **Wallet Funding Failed** (`fund-wallet-failed.html`)
 - **Subject:** Wallet Funding Failed ❌
 - **Purpose:** Notify user of failed wallet funding with retry and support options
 - **Dynamic Data:** `{{firstName}}`, `{{amount}}`, `{{failureReason}}`, `{{transactionId}}`, `{{supportUrl}}`, `{{faqUrl}}`, `{{googlePlayUrl}}`, `{{appStoreUrl}}`
@@ -107,7 +112,10 @@ Replace the following placeholders with actual data:
 {{amountToSend}}       <!-- Amount to be sent -->
 {{totalFee}}           <!-- Transaction fee -->
 {{recipientName}}      <!-- Recipient's name -->
+{{senderName}}         <!-- Sender's name -->
+{{transferType}}       <!-- Transfer method/type (e.g., Bank Transfer, Wallet) -->
 {{transactionId}}      <!-- Unique transaction reference -->
+{{transactionDate}}    <!-- Transaction date and time -->
 
 <!-- Verification Codes -->
 {{otpCode}}            <!-- OTP verification code -->
@@ -190,6 +198,7 @@ dayfi_email_templates/
 ├── transaction-pin-verification.html
 ├── transaction-pin-set-success.html
 ├── transfer-successful.html
+├── transfer-received.html
 ├── transfer-unsuccessful.html
 ├── transfer-reminder.html
 ├── fund-wallet-successful.html
